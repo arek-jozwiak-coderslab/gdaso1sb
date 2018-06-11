@@ -19,10 +19,15 @@ public class HomeController {
 
     @GetMapping("/")
     public String hello(){
-        Drink drink = Drink.builder().name("wodka2222").volume(123).color("red").build();
+        Drink drink = Drink.builder().name("wodka").volume(123).color("red").build();
         drinkRepository.save(drink);
         return "hello";
     }
+
+    @GetMapping("/admin")
+    @ResponseBody
+    public String admin() { return "admin"; }
+
 
     @ResponseBody
     @GetMapping("/hello")
